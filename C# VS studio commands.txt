@@ -1,0 +1,56 @@
+1)dotnet new mvc : used for to create empty folder MVC
+2)dotnet add package Microsoft.EntityFrameworkCore.SqlServer 
+3)dotnet add package --version 1.1.0-ms-final Microsoft.EntityFrameworkCore.Tools
+4)dotnet restore
+5)dotnet build
+6)dotnet run
+
+This command used to render the html Validation=================
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+Validation for name
+if (!Regex.IsMatch(viewModel.Name, @"^[a-zA-Z''-'\s]{1,40}$"))
+{
+    ModelState.AddModelError("Name", "Invalid name. Only letters and spaces are allowed.");
+}
+if (!Regex.IsMatch(viewModel.Phone, @"^[0-9]+$"))
+{
+    ModelState.AddModelError("Phone", "Invalid phone number. Only digits are allowed.");
+}
+====================================================
+ //Validation for Phone
+ if (!IsPhoneNumberValid(viewModel.Phone))
+ {
+     ModelState.AddModelError("Phone", "Invalid phone number. Please enter 10 digits.");
+ } 
+private bool IsPhoneNumberValid(string value)
+ {
+     // Remove any non-numeric characters
+     string numericPhone = new string(value.Where(char.IsDigit).ToArray());
+
+     // Check if the phone number consists of exactly 10 digits
+     return numericPhone.Length == 10;
+ }
+===========================================
+ //validation for name
+ if (!IsAlphabetical(viewModel.Name))
+ {
+     ModelState.AddModelError("Name", "Invalid name. Only alphabetical characters are allowed.");
+ }
+
+private bool IsAlphabetical(string value)
+{
+    foreach (char c in value)
+    {
+        if (!char.IsLetter(c) && !char.IsWhiteSpace(c)) // Ensure the character is a letter or whitespace
+        {
+            return false;
+        }
+    }
+    return true;
+}
+====================================================
+=============================================

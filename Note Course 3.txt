@@ -1,0 +1,38 @@
+In software development, testing refers to the process of evaluating a software application or system to ensure that it behaves as expected 
+and meets specified requirements. The primary goal of testing is to identify defects or bugs in the software so that they can be fixed 
+before the software is released to users.
+========================================
+There are several types of testing performed throughout the software development lifecycle, including:
+
+Unit Testing: Testing individual components or modules of the software in isolation to ensure they function correctly.
+
+Integration Testing: Testing interactions between different components or modules to ensure they work together as expected.
+
+System Testing: Testing the entire system as a whole to verify that it meets all functional and non-functional requirements.
+
+Acceptance Testing: Testing the software from the perspective of end-users to ensure it meets their needs and expectations.
+
+Regression Testing: Re-running tests on previously tested parts of the software to ensure that changes or fixes haven't introduced new defects.
+
+Performance Testing: Testing the performance and responsiveness of the software under different conditions, such as varying loads or network speeds.
+
+Security Testing: Testing the software for vulnerabilities and weaknesses to ensure it is secure against unauthorized access or attacks.
+===========================================================================================================
+Definition and Principles:
+Behavior-Driven Development is an evolution of Test-Driven Development (TDD) that focuses on the expected behavior of the software 
+from a user's perspective.
+=====================================================
+TDD involves writing tests before code to drive development at the unit level, focusing on code behavior. 
+BDD emphasizes collaboration and understanding of system behavior from a user's perspective, 
+using structured specifications to drive development. TDD focuses on testing individual units, 
+while BDD tests the system's behavior as a whole.
+==================================================================
+Popular Framework for Testing:
+1)X Unit
+2)N Unit
+3)MS Testing 
+=========================================
+
+
+
+

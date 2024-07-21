@@ -1,0 +1,15 @@
+Program.css file Builder:
+builder.Services.AddDbContext<ApplicationDBcontext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("StudentPortal")));
+------------------------------------------------------------------------------------------
+Json file for ConnectionString:
+"ConnectionStrings": {
+  "StudentPortal":"Server=ABDULLAHI\\SQLEXPRESS;Database=StudentPortalDb;Trusted_Connection=true;TrustServerCertificate=true;""
+--------------------------------------------------------------------------------------------------------------------
+Commands for Package Console
+1)Add - Migration "Initial Migration"
+2)Update-Database
+3)dotnet tool install --global dotnet-ef
+
+
+ku badalo server name sqlkaga

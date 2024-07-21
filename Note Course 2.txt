@@ -1,0 +1,65 @@
+Repository:The repository pattern in ASP.NET Core with C# is a design pattern commonly used to abstract 
+the data access layer from the rest of the application. To manage and data Access crud operations
+Example1:
+public interface IProductRepository
+{
+    Product GetProductById(int id);
+    IEnumerable<Product> GetAllProducts();
+    void AddProduct(Product product);
+    void UpdateProduct(Product product);
+    void DeleteProduct(int id);
+}
+
+public class ProductRepository : IProductRepository
+{
+    private readonly YourDbContext _dbContext;
+
+    public ProductRepository(YourDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
+
+    public Product GetProductById(int id)
+    {
+        return _dbContext.Products.FirstOrDefault(p => p.Id == id);
+    }
+
+    public IEnumerable<Product> GetAllProducts()
+    {
+        return _dbContext.Products.ToList();
+    }
+
+    public void AddProduct(Product product)
+    {
+        _dbContext.Products.Add(product);
+        _dbContext.SaveChanges();
+    }
+
+    public void UpdateProduct(Product product)
+    {
+        _dbContext.Products.Update(product);
+        _dbContext.SaveChanges();
+    }
+
+    public void DeleteProduct(int id)
+    {
+        var product = _dbContext.Products.FirstOrDefault(p => p.Id == id);
+        if (product != null)
+        {
+            _dbContext.Products.Remove(product);
+            _dbContext.SaveChanges();
+        }
+    }
+}
+============================================================================================
+-Authentication:Is the Process determining Who you are!
+-Authorization: Is the Process determining What you are allowed to do
+============================================================================================
+Object-Relational Mapping (ORM) is a programming technique that allows developers to map objects from an object-oriented programming language 
+(like C#, Java, Python, etc.) to tables in a relational database management system (such as SQL Server, MySQL, PostgreSQL, etc.), and vice versa.
+=======================================================================
+Razor Pages and MVC (Model-View-Controller) are both frameworks provided by ASP.NET Core for building 
+web applications, but they have some differences in terms of structure and development approach:
+===================================================
+JSON Web Tokens (JWT) are commonly used for securing web applications due to their simplicity, flexibility, and scalability. 
+Here's how JWTs are typically used for securing web apps:

@@ -1,0 +1,110 @@
+Generics in C# enable the creation of reusable, type-safe code by allowing classes, methods, and interfaces 
+to work with any data type. They promote code reusability, type safety, 
+and flexibility, resulting in more concise and maintainable code.
+
+Example:using System;
+public class Pair<T>
+{
+    public T First { get; set; }
+    public T Second { get; set; }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Pair<int> intPair = new Pair<int> { First = 10, Second = 20 };
+        Console.WriteLine($"First: {intPair.First}, Second: {intPair.Second}");
+        
+        Pair<string> stringPair = new Pair<string> { First = "Hello", Second = "World" };
+        Console.WriteLine($"First: {stringPair.First}, Second: {stringPair.Second}");
+    }
+}
+============================================================
+Event: Action In program Keyword for declare :event EventHandler eventName
+using System;
+
+public class MyClass
+{
+    public event EventHandler MyEvent;
+
+    public void RaiseEvent()
+    {
+        MyEvent?.Invoke(this, EventArgs.Empty);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        MyClass myObject = new MyClass();
+        myObject.MyEvent += (sender, e) => Console.WriteLine("Event raised!");
+        myObject.RaiseEvent();
+    }
+}
+======================Lambda=================
+Lambda expression: in line and Anonymous method
+Func<int, int, int> add = (a, b) => a + b;
+int result = add(3, 5);
+Console.WriteLine(result);
+=========================+===============
+Asynchronous:performing Task without an interrupting.
+Example:
+using System;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main()
+    {
+        await Task.Delay(1000);
+        Console.WriteLine("Async operation completed!");
+    }
+}
+==============================================================================
+Dependency injection: is an object that depends on another object to perform Tasks.
+Example code:
+using System;
+
+// Class representing the eggs supplier
+public class EggsSupplier
+{
+    public void GetEggs()
+    {
+        Console.WriteLine("Getting eggs from the supplier...");
+    }
+}
+
+// Class representing the cake maker
+public class CakeMaker
+{
+    private readonly EggsSupplier _eggsSupplier;
+
+    // Constructor injection: EggsSupplier is injected into CakeMaker
+    public CakeMaker(EggsSupplier eggsSupplier)
+    {
+        _eggsSupplier = eggsSupplier;
+    }
+
+    // Method to bake a cake
+    public void BakeCake()
+    {
+        Console.WriteLine("Baking a delicious cake...");
+        _eggsSupplier.GetEggs(); // Using the injected EggsSupplier to get eggs
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating instances of classes
+        EggsSupplier eggsSupplier = new EggsSupplier();
+        CakeMaker cakeMaker = new CakeMaker(eggsSupplier);
+
+        // Using the CakeMaker to bake a cake
+        cakeMaker.BakeCake();
+    }
+}
+===============================================================================

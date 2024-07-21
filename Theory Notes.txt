@@ -1,0 +1,2 @@
+-Authentication:Is the Process determining Who you are!
+-Authorization: Is the Process determining What you are allowed to do
